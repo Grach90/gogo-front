@@ -1,0 +1,19 @@
+.navContainer {
+  position: relative;
+  background-color: #3574d4;
+}
+
+.userinfo {
+  position: relative;
+  right: 10px;
+  width: 30px;
+}
+
+.navlinks {
+  color: white;
+  text-decoration: none;
+}
+
+.icon {
+  font-size: 2, 5rem;
+}
