@@ -12,8 +12,8 @@ function App() {
       <Container>
         <Login />
         <Register />
-        <Search />
       </Container>
+      <Search />
     </div>
   );
 }
