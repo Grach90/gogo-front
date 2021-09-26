@@ -1,8 +1,9 @@
 .searchContainer {
-  max-width: 992px;
-  height: 60px;
-  position: absolute;
-  top: 250px;
-  left: 12%;
-  right: 12%;
+    max-width: 992px;
+    height: 60px;
+    position: relative;
+    top: -140px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
 }

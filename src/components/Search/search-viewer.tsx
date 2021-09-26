@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Container } from "@mui/material";
+import { Container, InputProps } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
@@ -10,6 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Button from "@mui/material/Button";
 import styles from "./search.module.css";
+import { stringify } from "querystring";
 
 const Viewer = () => {
   const [value, setValue] = React.useState<Date | null>(new Date());
@@ -20,12 +21,30 @@ const Viewer = () => {
     setAge(event.target.value as string);
   };
 
+  const stylesTextField = {
+    whence: {
+      borderRadius: "15px 0px 0px 15px",
+      backgroundColor: "white"
+    },
+    where: {
+      borderRadius: "0px",
+      backgroundColor: "white"
+    },
+    data: {
+      borderRadius: "0px",
+      backgroundColor: "white"
+    },
+    button: {
+      borderRadius: "0px 15px 15px 0px"
+    }
+  }
+
   return (
     <div className={styles.searchContainer}>
       <div style={{ display: "flex" }}>
         <div>
           <TextField
-            InputProps={{ style: { borderRadius: "15px 0px 0px 15px" } }}
+            InputProps={{ style: stylesTextField.whence }}
             id="outlined-basic"
             label="Որտեղից"
             variant="outlined"
@@ -36,14 +55,14 @@ const Viewer = () => {
             id="outlined-basic"
             label="Որտեղ"
             variant="outlined"
-            InputProps={{ style: { borderRadius: "0px" } }}
+            InputProps={ { style: stylesTextField.where } }
           />
         </div>
         <div style={{ width: "170px" }}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <MobileDatePicker
               // label="For mobile"
-              InputProps={{ style: { borderRadius: "0px" } }}
+              InputProps={ { style: stylesTextField.where } }
               value={value}
               onChange={(newValue) => {
                 setValue(newValue);
@@ -56,7 +75,7 @@ const Viewer = () => {
           <FormControl style={{ width: "140px" }}>
             <InputLabel id="demo-simple-select-label">Ուղևորներ</InputLabel>
             <Select
-              style={{ borderRadius: "0px" }}
+              style={stylesTextField.data}
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={age}
@@ -73,7 +92,7 @@ const Viewer = () => {
         <Button
           variant="contained"
           size="large"
-          style={{ borderRadius: "0px 15px 15px 0px" }}
+          style={stylesTextField.button }
         >
           Փնտրել
         </Button>

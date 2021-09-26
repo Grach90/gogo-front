@@ -1,4 +1,5 @@
 import React from "react";
+import {Route} from "react-router-dom";
 import Navbar from "./components/Navbar/navbar-container";
 import Login from "./components/login/login-container";
 import Register from "./components/Register/register-container";
@@ -9,11 +10,23 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <Route 
+        path="/"
+        component={Search}
+        exact
+      />
       <Container>
-        <Login />
-        <Register />
+        <Route
+          path='/login'
+          component={Login}
+          exact
+        />
+        <Route
+          path='/register'
+          component={Register}
+          exact
+        />
       </Container>
-      <Search />
     </div>
   );
 }
