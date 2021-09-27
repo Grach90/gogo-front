@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Container, InputProps } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
@@ -10,7 +9,6 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Button from "@mui/material/Button";
 import styles from "./search.module.css";
-import { stringify } from "querystring";
 
 const Viewer = () => {
   const [value, setValue] = React.useState<Date | null>(new Date());
@@ -24,20 +22,20 @@ const Viewer = () => {
   const stylesTextField = {
     whence: {
       borderRadius: "15px 0px 0px 15px",
-      backgroundColor: "white"
+      backgroundColor: "white",
     },
     where: {
       borderRadius: "0px",
-      backgroundColor: "white"
+      backgroundColor: "white",
     },
     data: {
       borderRadius: "0px",
-      backgroundColor: "white"
+      backgroundColor: "white",
     },
     button: {
-      borderRadius: "0px 15px 15px 0px"
-    }
-  }
+      borderRadius: "0px 15px 15px 0px",
+    },
+  };
 
   return (
     <div className={styles.searchContainer}>
@@ -55,14 +53,14 @@ const Viewer = () => {
             id="outlined-basic"
             label="Որտեղ"
             variant="outlined"
-            InputProps={ { style: stylesTextField.where } }
+            InputProps={{ style: stylesTextField.where }}
           />
         </div>
         <div style={{ width: "170px" }}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <MobileDatePicker
               // label="For mobile"
-              InputProps={ { style: stylesTextField.where } }
+              InputProps={{ style: stylesTextField.where }}
               value={value}
               onChange={(newValue) => {
                 setValue(newValue);
@@ -89,11 +87,7 @@ const Viewer = () => {
             </Select>
           </FormControl>
         </div>
-        <Button
-          variant="contained"
-          size="large"
-          style={stylesTextField.button }
-        >
+        <Button variant="contained" size="large" style={stylesTextField.button}>
           Փնտրել
         </Button>
       </div>
