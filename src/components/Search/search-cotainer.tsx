@@ -1,16 +1,11 @@
-import Viewer from './search-viewer';
-import ararat from '../../icons/ararat.jpg';
+import Viewer from "./search-viewer";
 
 const Search = () => {
   return (
     <div>
-      <div>
-        <img src={ararat} alt="" style={{width: '-webkit-fill-available'}}/>
-      </div>
-       <Viewer />
+      <Viewer />
     </div>
- 
-  )
-}
+  );
+};
 
 export default Search;

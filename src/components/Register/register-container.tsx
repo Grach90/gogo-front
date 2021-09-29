@@ -1,7 +1,7 @@
-import Viewer from './register-viewer';
+import Viewer from "./register-viewer";
 
 const Register = () => {
-  return <Viewer />
-}
+  return <Viewer />;
+};
 
 export default Register;

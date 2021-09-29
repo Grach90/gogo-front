@@ -11,14 +11,14 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
 import { Container } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -36,12 +36,11 @@ export default function MenuAppBar() {
   const [state, setState] = React.useState(false);
 
   const toggleDrawer =
-    (open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
-        event.type === 'keydown' &&
-        ((event as React.KeyboardEvent).key === 'Tab' ||
-          (event as React.KeyboardEvent).key === 'Shift')
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
       ) {
         return;
       }
@@ -67,7 +66,7 @@ export default function MenuAppBar() {
                 sx={{ flexGrow: 1 }}
                 style={{ marginRight: 20 }}
               >
-                <Link to="/" className={styles.navlinks}>
+                <Link to="/search" className={styles.navlinks}>
                   <SearchIcon style={{ fontSize: 30 }} />
                   Искать
                 </Link>
@@ -91,73 +90,71 @@ export default function MenuAppBar() {
                 <AccountCircle style={{ fontSize: 45 }} />
               </IconButton>
 
-
-              
-          <Drawer
-            anchor={'right'}
-            open={state}
-            onClose={toggleDrawer(false)}
-          >
-
- <Box
-      sx={{ width: 250 }}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
-    >
-     {auth ? <List>
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon /> 
-            </ListItemIcon>
-            <ListItemText primary='Ձեր երթուղումները' />
-          </ListItem> 
-          <ListItem button> 
-            <ListItemIcon>
-              <InboxIcon /> 
-            </ListItemIcon>
-            <ListItemText primary='Նամակ' />
-          </ListItem>
-          <ListItem button>  
-            <ListItemIcon>
-              <InboxIcon /> 
-            </ListItemIcon>
-            <ListItemText primary='Պրոֆիլ' />
-          </ListItem>  
-          <ListItem button>  
-            <ListItemIcon>
-              <InboxIcon /> 
-            </ListItemIcon>
-            <ListItemText primary='Դուրս գալ' />
-          </ListItem>
-      </List>
-      :
-      <List>
-        <Link to='/login'>
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon /> 
-            </ListItemIcon>
-            <ListItemText primary='Մուտք գործել' />
-          </ListItem>
-        </Link>
-        <Link to='/register'>
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon /> 
-            </ListItemIcon>
-            <ListItemText primary='Գրանցվել' />
-          </ListItem>
-        </Link>
-      </List>
-      }
-    <Divider />
-  </Box>    
-          </Drawer>
+              <Drawer
+                anchor={"right"}
+                open={state}
+                onClose={toggleDrawer(false)}
+              >
+                <Box
+                  sx={{ width: 250 }}
+                  role="presentation"
+                  onClick={toggleDrawer(false)}
+                  onKeyDown={toggleDrawer(false)}
+                >
+                  {auth ? (
+                    <List>
+                      <ListItem button>
+                        <ListItemIcon>
+                          <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Ձեր երթուղումները" />
+                      </ListItem>
+                      <ListItem button>
+                        <ListItemIcon>
+                          <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Նամակ" />
+                      </ListItem>
+                      <ListItem button>
+                        <ListItemIcon>
+                          <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Պրոֆիլ" />
+                      </ListItem>
+                      <ListItem button>
+                        <ListItemIcon>
+                          <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Դուրս գալ" />
+                      </ListItem>
+                    </List>
+                  ) : (
+                    <List>
+                      <Link to="/login">
+                        <ListItem button>
+                          <ListItemIcon>
+                            <InboxIcon />
+                          </ListItemIcon>
+                          <ListItemText primary="Մուտք գործել" />
+                        </ListItem>
+                      </Link>
+                      <Link to="/register">
+                        <ListItem button>
+                          <ListItemIcon>
+                            <InboxIcon />
+                          </ListItemIcon>
+                          <ListItemText primary="Գրանցվել" />
+                        </ListItem>
+                      </Link>
+                    </List>
+                  )}
+                  <Divider />
+                </Box>
+              </Drawer>
             </div>
           </Toolbar>
         </Container>
-    </AppBar>
-</Box>
+      </AppBar>
+    </Box>
   );
 }
